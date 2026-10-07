@@ -1,0 +1,12 @@
+# Java build output
+build/
+out/
+*.class
+
+# IntelliJ IDEA settings specific to this computer
+.idea/
+*.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db
