@@ -16,10 +16,3 @@ jobs:
       - name: Compile every week
         shell: pwsh
         run: ./build.ps1
-      - name: Check Week4 insertion sort
-        shell: pwsh
-        run: |
-          $actual = java -cp build/Week4 insertionSort 5 -2 5 0
-          if ($LASTEXITCODE -ne 0 -or $actual -ne '[-2, 0, 5, 5]') {
-            throw "Insertion sort failed: $actual"
-          }

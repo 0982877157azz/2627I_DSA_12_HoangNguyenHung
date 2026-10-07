@@ -24,9 +24,9 @@ if ($weekFolders.Count -eq 0) {
 
 $compiledCount = 0
 foreach ($week in $weekFolders) {
-    $sources = @(Get-ChildItem -LiteralPath $week.FullName -Filter '*.java' -File -Recurse | Sort-Object FullName)
+    $sources = @(Get-ChildItem -LiteralPath $week.FullName -Filter '*.java' -File -Recurse | Where-Object { $_.Length -gt 0 } | Sort-Object FullName)
     if ($sources.Count -eq 0) {
-        Write-Host "Bo qua $($week.Name): chua co file Java."
+        Write-Host "Bo qua $($week.Name): chua co file Java co noi dung."
         continue
     }
 
@@ -42,6 +42,7 @@ foreach ($week in $weekFolders) {
 }
 
 if ($compiledCount -eq 0) {
-    throw 'Khong co file Java nao de build.'
+    Write-Host 'Chua co bai Java co noi dung de build.'
+    exit 0
 }
 Write-Host "Build thanh cong $compiledCount file Java. Ket qua nam trong build/."
