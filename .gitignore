@@ -10,3 +10,6 @@ out/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+README.md
+build.ps1
